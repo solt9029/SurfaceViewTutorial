@@ -21,7 +21,7 @@
                 android:id="@+id/mySurfaceView"
                 android:layout_width="match_parent"
                 xmlns:android="http://schemas.android.com/apk/res/android"
-                android:background="#ffffff"
+                android:background="#00ffffff"
                 topMargin="@{viewModel.topMargin}"
                 height="@{viewModel.height}" />
 
