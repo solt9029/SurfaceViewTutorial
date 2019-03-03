@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.shiode.surfaceviewtutorial.MyScrollView android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout>
 
-    <RelativeLayout
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.shiode.surfaceviewtutorial.MainViewModel" />
+    </data>
+
+    <com.example.shiode.surfaceviewtutorial.ScrollContainerView android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="2000dp">
+        android:id="@+id/scrollContainerView"
+        xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <com.example.shiode.surfaceviewtutorial.MySurfaceView android:layout_height="100dp"
+        <RelativeLayout
             android:layout_width="match_parent"
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_marginTop="100dp"/>
+            android:layout_height="2000dp">
 
-    </RelativeLayout>
-</com.example.shiode.surfaceviewtutorial.MyScrollView>
+            <com.example.shiode.surfaceviewtutorial.MySurfaceView android:layout_height="200dp"
+                android:id="@+id/mySurfaceView"
+                android:layout_width="match_parent"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                topMargin="@{viewModel.topMargin}"
+                height="@{viewModel.height}" />
+
+        </RelativeLayout>
+    </com.example.shiode.surfaceviewtutorial.ScrollContainerView>
+</layout>
+

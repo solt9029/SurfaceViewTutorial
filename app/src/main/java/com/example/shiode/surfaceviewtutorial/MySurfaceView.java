@@ -53,7 +53,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         x = getWidth() / 2;
         y = getHeight() / 2;
         draw();
-        startnow(); // ★追加
+        loop(); // ★追加
     }
 
     @Override
@@ -81,8 +81,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         holder.unlockCanvasAndPost(c);
     }
 
-    // ★追加メソッド
-    public void startnow() {
+    public void loop() {
         ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
         executor.scheduleAtFixedRate(new Runnable() {
             @Override
@@ -96,7 +95,6 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int height = 2000;
-        setMeasuredDimension(widthMeasureSpec, resolveSize(height, heightMeasureSpec));
+        setMeasuredDimension(widthMeasureSpec, resolveSize(0, heightMeasureSpec));
     }
 }
