@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
     private SurfaceHolder holder;
-    private float x, y, r; // ★rを追加
+    private float x, y, r;
 
     public MySurfaceView(Context context) {
         super(context);
@@ -53,7 +53,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         x = getWidth() / 2;
         y = getHeight() / 2;
         draw();
-        loop(); // ★追加
+        loop();
     }
 
     @Override

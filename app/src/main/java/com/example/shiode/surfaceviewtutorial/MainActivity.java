@@ -2,6 +2,7 @@ package com.example.shiode.surfaceviewtutorial;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -36,5 +37,8 @@ public class MainActivity extends AppCompatActivity {
                 viewModel.height.set(scrollContainerView.getHeight());
             }
         });
+
+        // binding.mySurfaceView.setZOrderOnTop(true);
+        // binding.mySurfaceView.getHolder().setFormat(PixelFormat.TRANSLUCENT);
     }
 }
