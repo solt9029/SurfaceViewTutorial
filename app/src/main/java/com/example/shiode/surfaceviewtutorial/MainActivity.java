@@ -37,8 +37,5 @@ public class MainActivity extends AppCompatActivity {
                 viewModel.height.set(scrollContainerView.getHeight());
             }
         });
-
-        // binding.mySurfaceView.setZOrderOnTop(true);
-        // binding.mySurfaceView.getHolder().setFormat(PixelFormat.TRANSLUCENT);
     }
 }
