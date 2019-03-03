@@ -44,6 +44,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+        Log.d("MySurfaceView", "surfaceChanged");
     }
 
     @Override
@@ -92,4 +93,10 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         }, 100, 100, TimeUnit.MILLISECONDS);
     }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int height = 2000;
+        setMeasuredDimension(widthMeasureSpec, resolveSize(height, heightMeasureSpec));
+    }
 }

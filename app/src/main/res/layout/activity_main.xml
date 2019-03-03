@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.shiode.surfaceviewtutorial.MySurfaceView android:layout_height="match_parent"
+<ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" />
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="2000dp">
+
+        <com.example.shiode.surfaceviewtutorial.MySurfaceView android:layout_height="100dp"
+            android:layout_width="match_parent"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_marginTop="100dp"/>
+
+    </RelativeLayout>
+</ScrollView>
