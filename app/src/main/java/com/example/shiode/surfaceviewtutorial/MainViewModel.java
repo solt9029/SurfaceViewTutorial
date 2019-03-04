@@ -15,7 +15,7 @@ public class MainViewModel extends ViewModel {
     @BindingAdapter("topMargin")
     public static void setTopMargin(MySurfaceView view, int value) {
         ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams)view.getLayoutParams();
-        params.topMargin = value;
+        params.topMargin = value; // px
         view.setLayoutParams(params);
     }
 

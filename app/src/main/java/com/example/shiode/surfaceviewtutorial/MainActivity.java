@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     MainViewModel viewModel;
     ScrollContainerView scrollContainerView;
+    MySurfaceView mySurfaceView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +25,13 @@ public class MainActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         binding.setViewModel(viewModel);
 
+        mySurfaceView = binding.mySurfaceView;
         scrollContainerView = binding.scrollContainerView;
         scrollContainerView.setOnScrollChangedListener(new ScrollContainerView.OnScrollChangeListener() {
             @Override
             public void onScrollChanged(int x, int y, int oldX, int oldY) {
                 viewModel.topMargin.set(y);
+                mySurfaceView.draw(y);
             }
         });
         scrollContainerView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {

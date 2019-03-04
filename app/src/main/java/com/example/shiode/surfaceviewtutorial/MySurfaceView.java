@@ -7,18 +7,13 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
     private SurfaceHolder holder;
-    private float x, y, r;
+    private int width;
 
     public MySurfaceView(Context context) {
         super(context);
@@ -45,51 +40,34 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         Log.d("MySurfaceView", "surfaceChanged");
+        this.width = width;
+        draw(0);
     }
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         Log.d("MySurfaceView", "surfaceCreated");
-        x = getWidth() / 2;
-        y = getHeight() / 2;
-        draw();
-        loop();
+        width = getWidth();
+        draw(0);
     }
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                x = event.getX();
-                y = event.getY();
-                draw();
-        }
-        return super.onTouchEvent(event);
-    }
-
-    public void draw() {
+    public void draw(int offset) {
         Canvas c = holder.lockCanvas();
         c.drawColor(Color.WHITE);
         Paint p = new Paint();
         p.setStyle(Style.FILL);
-        p.setColor(Color.RED);
-        c.drawCircle(x, y, r, p); // ★修正
-        holder.unlockCanvasAndPost(c);
-    }
 
-    public void loop() {
-        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
-        executor.scheduleAtFixedRate(new Runnable() {
-            @Override
-            public void run() {
-                r = r > 50 ? 10 : r + 5;
-                draw();
-            }
-        }, 100, 100, TimeUnit.MILLISECONDS);
+        int count = 0;
+        for (int y = -offset; y < Util.convertDp2Px(2000, getContext()) - offset; y += Util.convertDp2Px(80, getContext())) {
+            c.drawCircle(width / 2, y, Util.convertDp2Px(10, getContext()) + count, p);
+            count++;
+        }
+
+        holder.unlockCanvasAndPost(c);
     }
 
     @Override
