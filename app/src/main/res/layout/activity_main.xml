@@ -21,9 +21,8 @@
                 android:id="@+id/mySurfaceView"
                 android:layout_width="match_parent"
                 xmlns:android="http://schemas.android.com/apk/res/android"
-                app:scrollY="100"
                 android:background="#00ffffff"
-                topMargin="@{viewModel.topMargin}"
+                scrollY="@{viewModel.scrollY}"
                 height="@{viewModel.height}" />
 
         </RelativeLayout>

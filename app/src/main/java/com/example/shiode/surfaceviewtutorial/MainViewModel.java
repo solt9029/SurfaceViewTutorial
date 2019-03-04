@@ -6,17 +6,19 @@ import android.databinding.ObservableInt;
 import android.view.ViewGroup;
 
 public class MainViewModel extends ViewModel {
-    public ObservableInt topMargin = new ObservableInt(0);
+    // MySurfaceView properties.
+    public ObservableInt scrollY = new ObservableInt(0);
     public ObservableInt height = new ObservableInt(0);
 
     MainViewModel() {
     }
 
-    @BindingAdapter("topMargin")
-    public static void setTopMargin(MySurfaceView view, int value) {
+    @BindingAdapter("scrollY")
+    public static void setScrollY(MySurfaceView view, int value) {
         ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams)view.getLayoutParams();
         params.topMargin = value; // px
         view.setLayoutParams(params);
+//        view.draw(value); // this makes error
     }
 
     @BindingAdapter("height")
