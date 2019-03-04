@@ -3,6 +3,7 @@ package com.example.shiode.surfaceviewtutorial;
 import android.arch.lifecycle.ViewModel;
 import android.databinding.BindingAdapter;
 import android.databinding.ObservableInt;
+import android.view.View;
 import android.view.ViewGroup;
 
 public class MainViewModel extends ViewModel {
@@ -15,7 +16,7 @@ public class MainViewModel extends ViewModel {
 
     @BindingAdapter("scrollY")
     public static void setScrollY(MySurfaceView view, int value) {
-        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams)view.getLayoutParams();
+        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
         params.topMargin = value; // px
         view.setLayoutParams(params);
 //        view.draw(value); // this makes error
@@ -27,4 +28,10 @@ public class MainViewModel extends ViewModel {
         params.height = value;
         view.setLayoutParams(params);
     }
+
+    // param v is ScrollContainerView
+    public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+        height.set(v.getHeight());
+    }
+
 }
