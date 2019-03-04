@@ -57,6 +57,10 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
     public void draw(int offset) {
         Canvas c = holder.lockCanvas();
+        if (c == null) {
+            return;
+        }
+
         c.drawColor(Color.WHITE);
         Paint p = new Paint();
         p.setStyle(Style.FILL);

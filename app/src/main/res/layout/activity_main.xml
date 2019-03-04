@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:id="@+id/scrollContainerView"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:onLayoutChange="@{viewModel::onLayoutChange}">
+        android:onLayoutChange="@{viewModel::onLayoutChange}"
+        onScrollChanged="@{viewModel.listener}">
 
         <RelativeLayout
             android:layout_width="match_parent"
