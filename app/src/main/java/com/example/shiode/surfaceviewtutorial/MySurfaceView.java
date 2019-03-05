@@ -77,6 +77,9 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        setMeasuredDimension(widthMeasureSpec, resolveSize(0, heightMeasureSpec));
+        final int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        final int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+
+        setMeasuredDimension(widthSize, heightSize);
     }
 }
