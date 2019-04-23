@@ -10,13 +10,6 @@ public class MainViewModel extends ViewModel {
     public ObservableInt offset = new ObservableInt(0);
     public ObservableInt height = new ObservableInt(0);
 
-    public ScrollContainerView.OnScrollChangeListener listener = new ScrollContainerView.OnScrollChangeListener() {
-        @Override
-        public void onScrollChanged(int x, int y , int oldX, int oldY) {
-            offset.set(y);
-        }
-    };
-
     MainViewModel() {
     }
 
@@ -38,10 +31,5 @@ public class MainViewModel extends ViewModel {
         ViewGroup.LayoutParams params = view.getLayoutParams();
         params.height = value;
         view.setLayoutParams(params);
-    }
-
-    @BindingAdapter("onScrollChanged")
-    public static void setOnScrollChangeListener(ScrollContainerView view, ScrollContainerView.OnScrollChangeListener listener) {
-        view.setOnScrollChangedListener(listener);
     }
 }
