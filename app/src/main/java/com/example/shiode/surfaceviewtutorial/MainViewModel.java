@@ -3,7 +3,6 @@ package com.example.shiode.surfaceviewtutorial;
 import android.arch.lifecycle.ViewModel;
 import android.databinding.BindingAdapter;
 import android.databinding.ObservableInt;
-import android.view.View;
 import android.view.ViewGroup;
 
 public class MainViewModel extends ViewModel {
@@ -11,11 +10,6 @@ public class MainViewModel extends ViewModel {
     public ObservableInt height = new ObservableInt(0);
 
     MainViewModel() {
-    }
-
-    // param v is ScrollContainerView
-    public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-        height.set(v.getHeight());
     }
 
     @BindingAdapter("offset")

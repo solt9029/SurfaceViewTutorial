@@ -20,11 +20,14 @@ public class MainActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         binding.setViewModel(viewModel);
 
-        binding.scrollContainerView.setOnScrollChangeListener(new ScrollContainerView.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(int x, int y, int oldX, int oldY) {
-                viewModel.offset.set(y);
-            }
+        binding.scrollContainerView.setOnScrollChangeListener((x, y, oldX, oldY) -> {
+            viewModel.offset.set(y);
+            binding.mySurfaceView.draw(y);
+        });
+
+        binding.scrollContainerView.addOnLayoutChangeListener((view, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
+            viewModel.height.set(view.getHeight());
+            binding.mySurfaceView.draw(viewModel.offset.get());
         });
 
     }
