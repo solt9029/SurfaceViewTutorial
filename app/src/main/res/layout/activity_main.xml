@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:background="#00ffffff"
-                scrollY="@{viewModel.scrollY}"
+                offset="@{viewModel.offset}"
                 height="@{viewModel.height}" />
 
         </RelativeLayout>

@@ -7,15 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class MainViewModel extends ViewModel {
-    // MySurfaceView properties.
-    public ObservableInt scrollY = new ObservableInt(0);
+    public ObservableInt offset = new ObservableInt(0);
     public ObservableInt height = new ObservableInt(0);
 
-    // TODO: I don't know how to improve this code now. (I want to make onScrollChanged function and pass it to ScrollContainerView. Maybe need to use runnable?)
     public ScrollContainerView.OnScrollChangeListener listener = new ScrollContainerView.OnScrollChangeListener() {
         @Override
         public void onScrollChanged(int x, int y , int oldX, int oldY) {
-            scrollY.set(y);
+            offset.set(y);
         }
     };
 
@@ -27,8 +25,8 @@ public class MainViewModel extends ViewModel {
         height.set(v.getHeight());
     }
 
-    @BindingAdapter("scrollY")
-    public static void setScrollY(MySurfaceView view, int value) {
+    @BindingAdapter("offset")
+    public static void setOffset(MySurfaceView view, int value) {
         ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
         params.topMargin = value; // px
         view.setLayoutParams(params);
