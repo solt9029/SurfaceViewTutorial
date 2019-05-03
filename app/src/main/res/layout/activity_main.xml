@@ -17,6 +17,12 @@
             android:layout_width="match_parent"
             android:layout_height="2000dp">
 
+            <com.example.shiode.surfaceviewtutorial.OvlView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#ffffffff"
+                height="@{viewModel.height}"/>
+
             <com.example.shiode.surfaceviewtutorial.MySurfaceView android:layout_height="200dp"
                 android:id="@+id/mySurfaceView"
                 android:layout_width="match_parent"
@@ -24,6 +30,7 @@
                 android:background="#00ffffff"
                 offset="@{viewModel.offset}"
                 height="@{viewModel.height}" />
+
 
         </RelativeLayout>
     </com.example.shiode.surfaceviewtutorial.ScrollContainerView>
