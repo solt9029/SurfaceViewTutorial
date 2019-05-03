@@ -13,14 +13,6 @@ public class MainViewModel extends ViewModel {
     MainViewModel() {
     }
 
-    @BindingAdapter("offset")
-    public static void setOffset(MySurfaceView view, int value) {
-        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-        params.topMargin = value; // px
-        view.setLayoutParams(params);
-        view.draw(value);
-    }
-
     @BindingAdapter("height")
     public static void setHeight(SurfaceView view, int value) {
         ViewGroup.LayoutParams params = view.getLayoutParams();
