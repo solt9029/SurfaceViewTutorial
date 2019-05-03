@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -8,31 +8,32 @@
             type="com.example.shiode.surfaceviewtutorial.MainViewModel" />
     </data>
 
-    <com.example.shiode.surfaceviewtutorial.ScrollContainerView android:layout_height="match_parent"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:id="@+id/scrollContainerView"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
+        <com.example.shiode.surfaceviewtutorial.ScrollContainerView android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_height="2000dp">
+            android:id="@+id/scrollContainerView"
+            xmlns:android="http://schemas.android.com/apk/res/android">
 
-            <com.example.shiode.surfaceviewtutorial.OvlView
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="#ffffffff"
-                height="@{viewModel.height}"/>
+                android:layout_height="2000dp" />
+        </com.example.shiode.surfaceviewtutorial.ScrollContainerView>
 
-            <com.example.shiode.surfaceviewtutorial.MySurfaceView android:layout_height="200dp"
-                android:id="@+id/mySurfaceView"
-                android:layout_width="match_parent"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:background="#00ffffff"
-                offset="@{viewModel.offset}"
-                height="@{viewModel.height}" />
+        <com.example.shiode.surfaceviewtutorial.OvlView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#ffffffff"
+            height="@{viewModel.height}" />
 
-
-        </RelativeLayout>
-    </com.example.shiode.surfaceviewtutorial.ScrollContainerView>
+        <com.example.shiode.surfaceviewtutorial.MySurfaceView android:layout_height="200dp"
+            android:id="@+id/mySurfaceView"
+            android:layout_width="match_parent"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:background="#00ffffff"
+            height="@{viewModel.height}" />
+    </android.support.design.widget.CoordinatorLayout>
 </layout>
 
