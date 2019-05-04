@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.scrollContainerView.addOnLayoutChangeListener((view, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
-            viewModel.height.set(view.getHeight());
             binding.mySurfaceView.draw(viewModel.offset.get());
         });
 
